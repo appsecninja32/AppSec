@@ -6,5 +6,5 @@ Nicole Smith basic SAST Tool for C# web applications.
 3. File Reading: The scan_file function reads the content of a given file and scans it for vulnerabilities.<br>
 3. Output: The findings are printed to the console, indicating the type of vulnerability, the line number, and the code snippet that matched the pattern.
 <br><br>
-<h2>Usage<br>
+<h2>Usage</h2><br>
 Save the script as sast_tool.py and run it from the command line, providing the paths to the C# files you want to scan:

@@ -1,0 +1,7 @@
+http://100.88.222.5
+http://metadata.tencentyun.com/
+http://metadata.tencentyun.com/latest/meta-data/cam/security-credentials
+http://metadata.tencentyun.com/latest/meta-data/cam/security-credentials/[ROLE-NAME]
+http://metadata.tencentyun.com/latest/meta-data/
+http://metadata.tencentyun.com/latest/meta-data/instance-id
+http://metadata.tencentyun.com/latest/meta-data/uuid

@@ -1,0 +1,3 @@
+https://kubernetes.default.svc.cluster.local
+https://kubernetes.default
+https://kubernetes.default.svc/metrics

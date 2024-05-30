@@ -1,0 +1,5 @@
+http://169.254.169.254/opc/v1/instance/
+http://192.0.0.192/latest/
+http://192.0.0.192/latest/user-data/
+http://192.0.0.192/latest/meta-data/
+http://192.0.0.192/latest/attributes/

